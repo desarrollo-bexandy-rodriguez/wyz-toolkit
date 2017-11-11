@@ -1,0 +1,314 @@
+/** 
+ * Selectator jQuery Plugin
+ * A plugin for select elements
+ * version 1.1, Dec 11th, 2015
+ * by Ingi P. Jacobsen
+ */
+/* dimmer */
+#selectator_dimmer {
+  background-color: rgba(0,0,0,0.1);
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+.cat-prnt-icn{
+  border-radius: 30px;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+}
+/* main element */
+.selectator_element {
+  border: 1px solid #e2ebf1;
+  box-sizing: border-box;
+  background-color: #fff;
+  display: inline-block;
+  text-decoration: none;
+  vertical-align: middle;
+}
+.selectator_element * {
+  box-sizing: border-box;
+  text-decoration: none;
+}
+.selectator_element img {
+  display: block;
+}
+.selectator_element.multiple {
+  padding-right: 20px !important;
+  /*padding-bottom: 5px !important;*/
+}
+.selectator_element.single {
+  height: 37px !important;
+  width: 100%;
+  margin-right: 30px;
+  padding: 0px 10px !important;
+  line-height: 30px;
+}
+.selectator_element:after {
+  position: absolute;
+    cursor: pointer;
+    display: block;
+    width: 15px;
+    height: 20px;
+    content: ' ';
+    background: url(../images/angle-down.png) no-repeat 80% #fff;
+    font-size: 90%;
+    right: 6px;
+    color: #aaa;
+    top: 20%;
+    line-height: 0;
+    background-size: 7px
+}
+.selectator_element .selectator_chosen_items {
+  display: inline;
+}
+.single.selectator_element .selectator_chosen_items {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  padding-right: 10px;
+}
+.selectator_element .selectator_chosen_items .selectator_chosen_item {
+  display: inline-block;
+  background-color: #39f;
+  border-radius: 2px;
+  color: #fff;
+  padding: 4px 20px 4px 4px;
+  font-size: 13px;
+  margin: 2px;
+  position: relative;
+  vertical-align: top;
+}
+.single.selectator_element .selectator_chosen_items .selectator_chosen_item {
+  background-color: transparent;
+  color: #000;
+  display: block;
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+  padding: 2px 0;
+  font-size: 12px;
+  font-weight: 400;
+}
+.multiple.selectator_element .selectator_chosen_items .selectator_chosen_item {
+  margin: 2px 0 2px 5px;
+  padding: 3px 20px 2px 5px;
+}
+.selectator_element .selectator_chosen_items .selectator_chosen_item .selectator_chosen_item_left {
+  float: left;
+  width: 30px;
+  height: 30px;
+}
+.selectator_element .selectator_chosen_items .selectator_chosen_item .selectator_chosen_item_left img {
+  height: 20px;
+  border-radius: 20px;
+}
+.multiple.selectator_element .selectator_chosen_items .selectator_chosen_item .selectator_chosen_item_left {
+  float: left;
+  width: 22px;
+}
+.multiple.selectator_element .selectator_chosen_items .selectator_chosen_item .selectator_chosen_item_left img {
+  height: 18px;
+}
+.single.selectator_element .selectator_chosen_items .selectator_chosen_item .selectator_chosen_item_title {
+  height: auto;
+  text-align: left;
+}
+.multiple.selectator_element .selectator_chosen_items .selectator_chosen_item .selectator_chosen_item_title {
+  float: left;
+  padding-top: 2px;
+}
+.selectator_element .selectator_chosen_items .selectator_chosen_item .selectator_chosen_item_subtitle {
+  display: none;
+}
+.selectator_element .selectator_chosen_items .selectator_chosen_item .selectator_chosen_item_right {
+  float: right;
+  width: 20px;
+  background-color: #ccc;
+  font-size: 15px;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 3px;
+  margin-right: 20px;
+  display: none;
+}
+.multiple.selectator_element .selectator_chosen_items .selectator_chosen_item .selectator_chosen_item_right {
+  display: none;
+}
+.selectator_element .selectator_chosen_items .selectator_chosen_item .selectator_chosen_item_remove {
+  display: inline-block;
+  font-weight: bold;
+  color: #fff;
+  margin: 0 0 0 5px;
+  padding: 6px 5px 4px 5px;
+  cursor: pointer;
+  font-size: 11px;
+  line-height: 10px;
+  vertical-align: top;
+  border-radius: 0 2px 2px 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.selectator_element .selectator_chosen_items .selectator_chosen_item .selectator_chosen_item_remove:hover {
+  color: #000;
+  background-color: #8cf;
+}
+.single.selectator_element .selectator_chosen_items .selectator_chosen_item .selectator_chosen_item_remove {
+  display: none;
+}
+.multiple.selectator_element .selectator_chosen_items .selectator_chosen_item .selectator_chosen_item_remove {
+  padding: 7px 5px 4px 5px;
+}
+.selectator_element .selectator_input,
+.selectator_element .selectator_textlength {
+  border: 0;
+  display: inline-block;
+  margin: 0;
+  background-color: transparent;
+  transition: none !important;
+  font-size: 13px;
+  outline: none;
+  padding: 6px 0 0 0;
+}
+.multiple.selectator_element .selectator_input,
+.multiple.selectator_element .selectator_textlength {
+  padding: 1px 0 0 0;
+  margin: 7px 0 2px 5px;
+}
+.single.selectator_element .selectator_input {
+  border: 1px solid #7f9db9;
+  position: absolute;
+  bottom: -37px;
+  left: -1px;
+  z-index: 101;
+  padding: 5px 25px;
+  width: 100%;
+  width: calc(100% + 2px);
+  border-bottom: 0;
+  background-color: #f6f6f6;
+  color: #333;
+  font-size: inherit;
+}
+.single.options-hidden.selectator_element .selectator_input {
+  opacity: 0;
+  position: absolute;
+  left: -10000px;
+}
+.single.options-visible.selectator_element .selectator_input {
+  opacity: 1;
+}
+.disable_search.selectator_element .selectator_input {
+  opacity: 0;
+  padding: 0 1px 1px 0 !important;
+}
+.selectator_element .selectator_options {
+  margin: 0;
+  padding: 0;
+  border: 1px solid #7f9db9;
+  border-radius: 0 0 3px 3px;
+  font-family: sans-serif;
+  position: absolute;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  z-index: 101;
+  background-color: #fff;
+  overflow-y: scroll;
+  max-height: 250px;
+  list-style: none;
+  left: -1px;
+  right: -1px;
+}
+.single.selectator_element .selectator_options {
+  padding-top: 0;
+  border-top: 0;
+}
+.disable_search.selectator_element .selectator_options {
+  border-top: 1px solid #7f9db9;
+}
+.single.disable_search.selectator_element .selectator_options {
+  padding-top: 0;
+}
+.options-hidden.selectator_element .selectator_options {
+  display: none;
+}
+.selectator_element .selectator_options .selectator_option {
+  padding: 5px;
+  cursor: pointer;
+  color: #000;
+}
+.selectator_element .selectator_options .selectator_option:before,
+.selectator_element .selectator_options .selectator_option:after {
+  content: "";
+  display: table;
+}
+.selectator_element .selectator_options .selectator_option:after {
+  clear: both;
+}
+.selectator_element .selectator_options .selectator_option.active {
+  background-color: #39f;
+  color: #fff;
+}
+.selectator_element .selectator_options .selectator_group {
+  padding: 5px;
+  font-weight: bold;
+}
+.selectator_element .selectator_options .selectator_group_option {
+  padding: 5px 5px 5px 20px;
+}
+.selectator_element .selectator_options .selectator_option .selectator_option_left,
+.selectator_element .selectator_options .selectator_group_option .selectator_option_left {
+  float: left;
+  height: 30px;
+}
+.selectator_element .selectator_options .selectator_option .selectator_option_left img,
+.selectator_element .selectator_options .selectator_group_option .selectator_option_left img {
+  height: 20px;
+  width: 20px;
+  border-radius: 30px;
+  text-align: left;
+}
+.input-location.map-locations .selectator_element .selectator_options .selectator_option .selectator_option_left img,
+.input-location.map-locations .selectator_element .selectator_options .selectator_group_option .selectator_option_left img {
+  height: 30px;
+  width: 30px;
+}
+.input-location.map-locations .selectator_element .selectator_chosen_items .selectator_chosen_item .selectator_chosen_item_left {
+  margin-top: 4px;
+  margin-right: 10px
+}
+.input-location.map-locations .selectator_element .selectator_chosen_items .selectator_chosen_item .selectator_chosen_item_left img {
+  height: 30px;
+}
+.selectator_element .selectator_options .selectator_option .selectator_option_title,
+.selectator_element .selectator_options .selectator_group_option .selectator_option_title {
+  margin-left: 35px;
+  text-align: left;
+  line-height: 28px;
+}
+.selectator_element .selectator_options .selectator_option .selectator_option_subtitle,
+.selectator_element .selectator_options .selectator_group_option .selectator_option_subtitle {
+  font-size: 75%;
+  color: #888;
+  margin-left: 35px;
+}
+.selectator_element .selectator_options .selectator_option .selectator_option_right,
+.selectator_element .selectator_options .selectator_group_option .selectator_option_right {
+  float: right;
+  width: 30px;
+  background-color: #ccc;
+  font-size: 15px;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 6px;
+  display: none;
+}
+/*# sourceMappingURL=fm.selectator.jquery.css.map */

@@ -1,0 +1,180 @@
+.verynsbigboxcontainer {
+	
+}
+
+.verynsbigbox {
+	width: 277px;
+	height: auto;
+	padding: 10px;
+	float: right;
+	margin-top: 8px;
+}
+
+.nsbigbox {
+	width:275px; 
+	height: auto;
+	background: #fff;
+	border: 1px solid #6BAA01;
+	border-radius: 7px;
+	color: #848481;
+}
+
+.nsbigbox-orange {
+	width:275px; 
+	height: auto;
+	background: #fff;
+	border: 1px solid #FBB02D;
+	border-radius: 7px;
+	color: #848481;
+}
+
+.titlensbigbox {
+	color: #fff;
+	width: 235px;
+	background: #6BAA01;
+	padding: 1px 20px;
+	text-align: center;
+	border-radius: 5px 5px 0px 0px;
+}
+
+.titlensbigbox-orange {
+	color: #fff;
+	width: 235px;
+	background: #FBB02D;
+	padding: 1px 20px;
+	text-align: center;
+	border-radius: 5px 5px 0px 0px;
+}
+
+.contentnsbigbox {
+	width: 235px;
+	padding: 20px 20px 30px 20px;
+}
+
+.contentnsbigbox p {
+	font-size: 12px;
+	line-height: 18px;
+	margin-top: 5px;
+	margin-bottom: 20px;
+	text-align: justify;
+}
+
+a.linkBigBoxNS {
+	text-decoration: none;
+	color: #848481;
+}
+
+.buttonNsbigbox {
+	cursor: pointer;
+	height: 36px;
+	border: 1px solid #6BAA01;
+	background: #fff;
+	text-align: center;
+    margin: 0 auto;
+    padding: 15px 20px 0px 20px;
+    font-size: 18px;
+    border-radius: 7px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.buttonNsbigbox-orange {
+	cursor: pointer;
+	height: 36px;
+	border: 1px solid #FBB02D;
+	background: #fff;
+	text-align: center;
+    margin: 0 auto;
+    padding: 15px 20px 0px 20px;
+    font-size: 18px;
+    border-radius: 7px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.buttonNsbigbox:hover {
+	color: #fff;
+	height: 36px;
+	border: 1px solid #6BAA01;
+	background: #6BAA01;
+	text-align: center;
+    margin: 0 auto;
+    padding: 15px 20px 0px 20px;
+    font-size: 18px;
+}
+
+.buttonNsbigbox-orange:hover {
+	color: #fff;
+	height: 36px;
+	border: 1px solid #FBB02D;
+	background: #FBB02D;
+	text-align: center;
+    margin: 0 auto;
+    padding: 15px 20px 0px 20px;
+    font-size: 18px;
+}
+
+.buttonNsEmail {
+	width: 100%;
+	height: 52px;
+	line-height: 36px;
+	border: 1px solid #6BAA01;
+	background: #6BAA01;
+	padding: 0 20px;
+    font-size: 18px;
+	margin: 15px auto;
+    border-radius: 7px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.buttonNsEmail-orange {
+	width: 100%;
+	height: 52px;
+	line-height: 36px;
+	border: 1px solid #FBB02D;
+	background: #FBB02D;
+	padding: 0 20px;
+    font-size: 18px;
+	margin: 15px auto;
+    border-radius: 7px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.nscenterbannerone {
+	text-align: center;
+}
+/* additional classes */
+
+.nsbigboxtheme {
+	margin-top: 30px;
+	width:275px; 
+	height: auto;
+	background: #fff;
+	border: 1px solid #6BAA01;
+	border-radius: 7px;
+	color: #848481;
+}
+
+.nsbigboxtheme-orange {
+	margin-top: 30px;
+	width:275px; 
+	height: auto;
+	background: #fff;
+	border: 1px solid #FBB02D;
+	border-radius: 7px;
+	color: #848481;
+}
+.imgnsbigbox {
+	width: 235px;
+	height: auto;
+}

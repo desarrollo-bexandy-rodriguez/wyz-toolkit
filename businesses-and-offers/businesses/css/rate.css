@@ -1,0 +1,81 @@
+.ratings > div{
+    margin-top: 20px;
+    display: inline-block;
+    padding: 5px 20px;
+    background-color: #f1f6fb;
+    color: #707070;
+    border-radius: 30px;
+}
+
+.ratings > span{
+    display: inline-block;
+    font-family: 'Montserrat';
+    margin: 0;
+    padding: 0;
+}
+
+.ratings .fa-star{
+  display: inline-block !important;
+  margin-right: 5px;
+}
+label.star,
+.star-checked {
+    color: #fff;
+}
+.star-checked{
+  color: #ffcc02;
+}
+
+.rating-data .star-unchecked{
+  color: #373737;
+}
+
+span.stars {
+    width: 270px;
+    display: inline-block;
+}
+
+input.star {
+    display: none;
+}
+
+.rating-data label.star {
+    padding: 0 2px;
+    display: inline-block;
+    font-size: 15px;
+    margin: 0;
+    color: #444;
+    float: right;
+    transition: all .2s;
+}
+
+input.star:checked ~ label.star:before {
+    content: '\f005';
+    color: #FD4;
+    transition: all .25s;
+}
+
+input.star-5:checked ~ label.star:before {
+    color: #FE7;
+    text-shadow: 0 0 5px #952;
+}
+
+input.star-1:checked ~ label.star:before {
+    color: #F62;
+}
+
+label.star:before {
+  content: '\f005';
+  font-family: FontAwesome;
+}
+
+#bus-rate-form>span{
+    margin-left: 3px;
+    margin-top: 0;
+}
+
+#bus-rate{
+    font-weight: 600;
+    margin-left: 8px;
+    float: right;
+}

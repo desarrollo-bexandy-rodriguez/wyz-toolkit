@@ -1,0 +1,31 @@
+<fieldset>
+    <legend class="screen-reader-text">Tab Formats</legend>
+    <div class="wyzi-claim-form-field-content">
+        <div class="wyzi-claim-form-input-field-container" ng-show="addToAdded(field.type)">
+            <label>Label</label>
+            <input type="text" ng-model="field.label" class="wyzi-claim-form-input-field" />
+        </div>
+        <div class="wyzi-claim-form-input-field-container">
+            <input type="checkbox" class="wyzi-claim-form-input-field" ng-model="field.required" ng-checked="field.required" />
+            <label> Required</label>
+        </div>
+        <div class="wyzi-claim-form-input-field-container">
+            <input type="checkbox" class="wyzi-claim-form-input-field" ng-model="field.parentSelectable" ng-checked="field.parentSelectable" />
+            <label> Parent selectable</label>
+            <p class="description">Users become able to select parent categories as well</p>
+        </div>
+        <div class="wyzi-claim-form-input-field-container">
+            <input type="checkbox" class="wyzi-claim-form-input-field" ng-model="field.separateCategories" ng-checked="field.separateCategories" />
+            <label> Seperatable</label>
+            <p class="description">Place a separator between parent categories with their children from other categories</p>
+        </div>
+        <div class="wyzi-claim-form-input-field-container">
+            <label>Custom CSS Classes</label>
+            <input type="text" class="wyzi-claim-form-input-field" ng-model="field.cssClass" />
+        </div>
+        <div class="wyzi-claim-form-input-field-container">
+            <a href="#" ng-click="removeFormField(field.type, $index, $event)" class="wyzi-remove-form-field">Remove</a>
+        </div>
+
+    </div>
+</fieldset>

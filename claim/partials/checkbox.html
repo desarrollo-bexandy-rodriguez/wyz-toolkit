@@ -1,0 +1,28 @@
+<fieldset>
+    <legend class="screen-reader-text">Post Formats</legend>
+    <div class="wyzi_claim-form-field-content">
+        <div class="wyzi_claim-form-input-field-container">
+            <label>Label</label>
+            <input type="text" ng-model="field.label" class="wyzi_claim-form-input-field" />
+        </div>
+        <div class="wyzi_claim-form-input-field-container">
+            <label>Default Value</label>
+            <select class="wyzi_claim-form-input-field" ng-model="field.defaultValue">
+                <option value="unchecked">Unchecked</option>
+                <option value="checked">Checked</option>
+            </select>
+        </div>
+        <div class="wyzi_claim-form-input-field-container">
+            <input type="checkbox" class="wyzi_claim-form-input-field" ng-model="field.required" ng-checked="field.required" />
+            <label> Required</label>
+        </div>
+        <div class="wyzi_claim-form-input-field-container">
+            <label>Custom CSS Classes</label>
+            <input type="text" class="wyzi_claim-form-input-field" ng-model="field.cssClass" />
+        </div>
+        <div class="wyzi_claim-form-input-field-container">
+            <a href="#" ng-click="removeFormField($index, $event)" class="wyzi-remove-form-field">Remove</a>
+        </div>
+
+    </div>
+</fieldset>

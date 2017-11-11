@@ -1,0 +1,31 @@
+.owl-theme .owl-controls {
+	text-align: center;
+}
+
+/* Styling Next and Prev buttons */
+.owl-prev>img, .owl-next>img {
+	width: 20px;
+	height: 20px;
+}
+
+/* Clickable class fix problem with hover on touch devices */
+/* Use it for non-touch hover action */
+.owl-controls .owl-nav div:hover {
+	filter: Alpha(Opacity=100);/*IE7 fix*/
+	opacity: 0.7;
+	text-decoration: none;
+}
+
+.offers-slider, owl-carousel, owl-theme owl-loaded { z-index: 0; }
+
+.owl-controls { height: 0; }
+
+.owl-controls .owl-nav div { position: absolute; }
+
+.owl-controls .owl-nav .owl-prev { left: 0; }
+
+.owl-controls .owl-nav .owl-next { right: 0; }
+
+.owl-carousel .owl-wrapper-outer{
+	z-index: 1;
+}

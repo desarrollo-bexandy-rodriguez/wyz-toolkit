@@ -1,0 +1,37 @@
+.multiselect {
+  width: 200px;
+}
+
+.selectBox {
+  position: relative;
+}
+
+.selectBox select {
+  width: 100%;
+  font-weight: bold;
+}
+
+.overSelect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+#wyz-business-category-checkboxes {
+  display: none;
+  border: 1px #dadada solid;
+}
+
+#wyz-business-category-checkboxes label {
+  display: block;
+}
+
+#wyz-business-category-checkboxes label:hover {
+  background-color: #1e90ff;
+}
+
+#wyz-business-category-checkboxes .child-cat {
+  margin-left: 15px;
+}
