@@ -236,6 +236,13 @@ class WyzBusinessPost extends WyzBusinessPostOverridden {
 			</div>
 			<!-- Post Content -->
 			<div class="content">
+				<?php 
+				$meta_custom = '';
+				$meta_custom = get_post_meta( $business_data['id'] );
+				var_dump($meta_custom);
+				 ?>
+								Estoy aca	
+
 				<?php if ( isset( $value['post'] ) && ! empty( $value['post'] ) ) {
 					echo '<p>' . $value['post'] . '</p>';
 				} else {
@@ -353,6 +360,11 @@ class WyzBusinessPost extends WyzBusinessPostOverridden {
 
 			<!-- Wall Post Content -->
 			<div class="content">
+								<?php 
+				$meta_custom = '';
+				$meta_custom = get_post_meta( $business_data['id'] );
+				var_dump($meta_custom);
+				 ?>
 				<?php if ( isset( $value['post'] ) && ! empty( $value['post'] ) ) {
 					echo '<p>' . $value['post'] . '</p>';
 				} else {

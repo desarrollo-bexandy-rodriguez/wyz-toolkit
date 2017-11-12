@@ -1079,7 +1079,19 @@ function wyz_get_businesses_js_data() {
 		if ( '' != $temp_term ) {
 
 			$col = get_term_meta( $temp_term, 'wyz_business_cat_bg_color', true );
-			$holder = wp_get_attachment_url( get_term_meta( $temp_term, "map_icon$template_type", true ) );
+			if ($temp_term == 16) {
+				$sticky = is_sticky( $b_id );
+				if ($sticky) {
+					$holder = wp_get_attachment_url( get_term_meta( $temp_term, "map_icon4", true ) );
+				} else {
+					$holder = wp_get_attachment_url( get_term_meta( $temp_term, "map_icon3", true ) );
+				}
+				
+			} else {
+				$holder = wp_get_attachment_url( get_term_meta( $temp_term, "map_icon$template_type", true ) );
+			}
+			
+			
 				
 		} else {
 			$col = '';

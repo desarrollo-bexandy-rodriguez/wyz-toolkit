@@ -177,8 +177,13 @@ function wyz_generate_map_icons( $term_id, $tt_id ) {
 		// Load source and mask.
 		$mask = imagecreatefrompng( $uploads_path . '/marker.png' );
 		$mask2 = imagecreatefrompng( $uploads_path . '/marker-2.png' );
-		$source = imagecreatetruecolor( 40, 55 );
+		$mask3 = imagecreatefrompng( $uploads_path . '/marker-3.png' );
+		$mask4 = imagecreatefrompng( $uploads_path . '/marker-4.png' );
+		$source = imagecreatetruecolor( 32, 44 );
 		$source2 = imagecreatetruecolor( 60, 60 );
+		$source3 = imagecreatetruecolor( 40, 64 );
+		$source4 = imagecreatetruecolor( 64, 77 );
+
 
 		$bg_color = get_term_meta( $term_id, 'wyz_business_cat_bg_color', true );
 		list( $r, $g, $b ) = sscanf( $bg_color, '#%02x%02x%02x' );
@@ -186,12 +191,18 @@ function wyz_generate_map_icons( $term_id, $tt_id ) {
 		// Sets background category color.
 		$color = imagecolorallocate( $source, $r, $g, $b );
 		$color2 = imagecolorallocate( $source2, $r, $g, $b );
+		$color3 = imagecolorallocate( $source3, $r, $g, $b );
+		$color4 = imagecolorallocate( $source4, $r, $g, $b );
 		imagefill( $source, 0, 0, $color );
 		imagefill( $source2, 0, 0, $color2 );
+		imagefill( $source3, 0, 0, $color3 );
+		imagefill( $source4, 0, 0, $color4 );
 
 		// Apply mask to source.
 		WyzHelpers::wyz_imagealphamask( $source, $mask );
 		WyzHelpers::wyz_imagealphamask( $source2, $mask2 );
+		WyzHelpers::wyz_imagealphamask( $source3, $mask3 );
+		WyzHelpers::wyz_imagealphamask( $source4, $mask4 );
 		//Source has now a 40x55 image with category color as bg color.
 
 		// Resize icon to 25 by 25 for map marker icon and save it to map-icons folder.
@@ -212,28 +223,34 @@ function wyz_generate_map_icons( $term_id, $tt_id ) {
 			case IMAGETYPE_JPEG:
 				$image_2 = imagecreatefromjpeg( $location_url_25 );
 				$image_2_2 = imagecreatefromjpeg( $location_url_32 );
+				$image_2_3 = imagecreatefromjpeg( $location_url_25 );
+				$image_2_4 = imagecreatefromjpeg( $location_url );
 				$filetype = 'image/jpeg';
 				$ext = '.jpeg';
 			break;
 			case IMAGETYPE_GIF:
 				$image_2 = imagecreatefromgif( $location_url_25 );
 				$image_2_2 = imagecreatefromgif( $location_url_32 );
+				$image_2_3 = imagecreatefromgif( $location_url_25 );
+				$image_2_4 = imagecreatefromgif( $location_url );
 				$filetype = 'image/gif';
 				$ext = '.gif';
 			break;
 			case IMAGETYPE_PNG:
 				$image_2 = imagecreatefrompng( $location_url_25 );
 				$image_2_2 = imagecreatefrompng( $location_url_32 );
+				$image_2_3 = imagecreatefrompng( $location_url_25 );
+				$image_2_4 = imagecreatefrompng( $location_url );
 				$filetype = 'image/png';
 				$ext = '.png';
 		}
 
 		// Solve black background issues when copying small image ontop of larger one.
-		$temp_img = imagecreatetruecolor( 40, 55 );
+		$temp_img = imagecreatetruecolor( 32, 44 );
 		imagealphablending( $temp_img, true );
 		imagesavealpha( $temp_img, true );
 		imagefill( $temp_img, 0, 0, 0x7fff0000 );
-		imagecopy( $temp_img, $image_2, 0, 0, 0, 0, 40, 55 );
+		imagecopy( $temp_img, $image_2, 0, 0, 0, 0, 32, 44 );
 		imagefill( $temp_img, 25, 25, 0x7fff0000 );
 		$temp_img_2 = imagecreatetruecolor( 60, 60 );
 		imagealphablending( $temp_img_2, true );
@@ -241,14 +258,30 @@ function wyz_generate_map_icons( $term_id, $tt_id ) {
 		imagefill( $temp_img_2, 0, 0, 0x7fff0000 );
 		imagecopy( $temp_img_2, $image_2_2, 0, 0, 0, 0, 60, 60 );
 		imagefill( $temp_img_2, 32, 32, 0x7fff0000 );
+		$temp_img_3 = imagecreatetruecolor( 40, 64 );
+		imagealphablending( $temp_img_3, true );
+		imagesavealpha( $temp_img_3, true );
+		imagefill( $temp_img_3, 0, 0, 0x7fff0000 );
+		imagecopy( $temp_img_3, $image_2_3, 0, 0, 0, 0, 40, 64 );
+		imagefill( $temp_img_3, 25, 25, 0x7fff0000 );
+		$temp_img_4 = imagecreatetruecolor( 64, 77 );
+		imagealphablending( $temp_img_4, true );
+		imagesavealpha( $temp_img_4, true );
+		imagefill( $temp_img_4, 0, 0, 0x7fff0000 );
+		imagecopy( $temp_img_4, $image_2_4, 0, 0, 0, 0, 64, 77 );
+		imagefill( $temp_img_4, 50, 50, 0x7fff0000 );
 
 		// Copy icon ontop of marker and place them inside image 1.
-		imagecopy( $source, $temp_img, 7, 7, 0, 0, 40, 55 );
+		imagecopy( $source, $temp_img, 4, 5, 0, 0, 32, 44 );
 		imagecopy( $source2, $temp_img_2, 13, 13, 0, 0, 60, 60 );
+		imagecopy( $source3, $temp_img_3, 8, 4, 0, 0, 40, 64 );
+		imagecopy( $source4, $temp_img_4, 7, 13, 0, 0, 64, 77 );
 
 		// Save the finished marker with icon.
 		imagepng( $source, $uploads_path . '/mapicon-' . $img_name . '.png' );
 		imagepng( $source2, $uploads_path . '/mapicon-' . $img_name . '-2.png' );
+		imagepng( $source3, $uploads_path . '/mapicon-' . $img_name . '-3.png' );
+		imagepng( $source4, $uploads_path . '/mapicon-' . $img_name . '-4.png' );
 
 		// Get the path to the upload directory.
 		$wp_upload_dir = wp_upload_dir();
@@ -256,6 +289,8 @@ function wyz_generate_map_icons( $term_id, $tt_id ) {
 		// Move map marker (25x25) to wp upload directory.
 		$upload_25 = wp_upload_bits( 'mapicon-' . $img_name . '.png', null, file_get_contents( $uploads_path . '/mapicon-' . $img_name . '.png' ) );
 		$upload_25_2 = wp_upload_bits( 'mapicon-' . $img_name . '-2.png', null, file_get_contents( $uploads_path . '/mapicon-' . $img_name . '-2.png' ) );
+		$upload_25_3 = wp_upload_bits( 'mapicon-' . $img_name . '-3.png', null, file_get_contents( $uploads_path . '/mapicon-' . $img_name . '-3.png' ) );
+		$upload_25_4 = wp_upload_bits( 'mapicon-' . $img_name . '-4.png', null, file_get_contents( $uploads_path . '/mapicon-' . $img_name . '-4.png' ) );
 
 		// Prepare an array of post data for the attachment.
 		$attachment_25 = array(
@@ -272,6 +307,20 @@ function wyz_generate_map_icons( $term_id, $tt_id ) {
 			'post_content' => '',
 			'post_status' => 'inherit',
 		);
+		$attachment_25_3 = array(
+			'guid' => $upload_25_3['url'],
+			'post_mime_type' => 'image/png',
+			'post_title' => preg_replace( '/\.[^.]+$/', '', 'Map Icon: ' . $img_name . '-3.png' ),
+			'post_content' => '',
+			'post_status' => 'inherit',
+		);
+		$attachment_25_4 = array(
+			'guid' => $upload_25_4['url'],
+			'post_mime_type' => 'image/png',
+			'post_title' => preg_replace( '/\.[^.]+$/', '', 'Map Icon: ' . $img_name . '-4.png' ),
+			'post_content' => '',
+			'post_status' => 'inherit',
+		);
 
 		// Insert the map marker attachment.
 		$attach_id_25 = wp_insert_attachment( $attachment_25, $upload_25['file'], $term_id );
@@ -280,10 +329,18 @@ function wyz_generate_map_icons( $term_id, $tt_id ) {
 		$attach_id_25_2 = wp_insert_attachment( $attachment_25_2, $upload_25_2['file'], $term_id );
 		$attach_data_25_2 = wp_generate_attachment_metadata( $attach_id_25_2, $upload_25_2['file'] );
 		$update_25_2 = wp_update_attachment_metadata( $attach_id_25_2, $attach_data_25_2 );
+		$attach_id_25_3 = wp_insert_attachment( $attachment_25_3, $upload_25_3['file'], $term_id );
+		$attach_data_25_3 = wp_generate_attachment_metadata( $attach_id_25_3, $upload_25_3['file'] );
+		$update_25_3 = wp_update_attachment_metadata( $attach_id_25_3, $attach_data_25_3 );
+		$attach_id_25_4 = wp_insert_attachment( $attachment_25_4, $upload_25_4['file'], $term_id );
+		$attach_data_25_4 = wp_generate_attachment_metadata( $attach_id_25_4, $upload_25_4['file'] );
+		$update_25_4 = wp_update_attachment_metadata( $attach_id_25_4, $attach_data_25_4 );
 
 		// Update the category ' map_icon ' meta data.
 		update_term_meta( $term_id, 'map_icon', $attach_id_25 );
 		update_term_meta( $term_id, 'map_icon2', $attach_id_25_2 );
+		update_term_meta( $term_id, 'map_icon3', $attach_id_25_3 );
+		update_term_meta( $term_id, 'map_icon4', $attach_id_25_4 );
 
 		// Move category icon to wp upload directory.
 		$upload = wp_upload_bits( $img_name . $ext, null, file_get_contents( $location_path ) );

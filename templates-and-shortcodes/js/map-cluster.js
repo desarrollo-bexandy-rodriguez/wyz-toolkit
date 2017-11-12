@@ -156,7 +156,7 @@ function wyz_load_map(){
 						position: latlng,
 						icon: {
 							url: globalMap.markersWithIcons[ii],
-							size: new google.maps.Size(markerWidthX,markerWidthY),
+							//size: new google.maps.Size(markerWidthX,markerWidthY),
 							origin: new google.maps.Point(0, 0),
 							anchor: new google.maps.Point(markerAnchorX, markerAnchorY),
 						},
@@ -342,7 +342,7 @@ function wyz_load_map(){
 					position: { lat: parseFloat(la), lng: parseFloat(lo) },
 					icon: {
 						url: searchMarker,
-						size: new google.maps.Size(40,55),
+						//size: new google.maps.Size(40,55),
 						origin: new google.maps.Point(0, 0),
 						anchor: new google.maps.Point(20, 55),
 					},
@@ -368,7 +368,7 @@ function wyz_load_map(){
 				position: { lat: parseFloat(myLat), lng: parseFloat(myLon) },
 				icon: {
 					url: searchMarker,
-					size: new google.maps.Size(40,55),
+					//size: new google.maps.Size(40,55),
 					origin: new google.maps.Point(0, 0),
 					anchor: new google.maps.Point(20, 55),
 				},
@@ -730,8 +730,8 @@ function wyz_load_map(){
 			case 1:
 				markerAnchorX = 20;
 				markerAnchorY = 55;
-				markerWidthX = 40;
-				markerWidthY = 55;
+				markerWidthX = 64;
+				markerWidthY = 77;
 			break;
 			case 2:
 				markerAnchorX = 0;
